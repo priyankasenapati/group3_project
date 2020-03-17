@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+<link rel="stylesheet" type="text/css" href="styles.css">
+<title>Marriage Prediction</title>
+{% endblock %}
+
+
+{% block body %}
+<div class="container">
+    <div class="menu">
+        <ul>
+            <li>Home</li>
+            <li>Services</li>
+            <li>Product</li>
+            <li>Contact</li>
+            <li><a href="#" class="signup-btn"><span>Sign up</span></a></li>
+        </ul>
+    </div>
+    <div class="content" >
+        <div class="banner">
+            <div class="app-text">
+                <h1> How Good of A Partner Are You?</h1>
+                <p> How likely will you get a divorce?</p>
+            </div>
+        </div>
+        <form class="form" action="/submit" method="POST">
+            <!--input type="text" name="email" placeholder="Write your email..."--><br><br>
+            <table summary="" role="presentation" cellpadding="4" cellspacing="0" class="form-matrix-table" data-component="matrix">
+                <tbody>
+                    <tr>
+                        <th style="border: none; padding: 20px 5px 10px;" >&nbsp;</th>
+                        <th scope="col" class="form-matrix-column-headers form-matrix-column_0" style="position: relative;font-size:smaller;color:#01ABAA;"> Strongly Disagrees &nbsp&nbsp&nbsp</th>
+                        <th scope="col" class="form-matrix-column-headers form-matrix-column_1" style="position: relative;font-size:smaller;color:#01ABAA;"> Disagrees &nbsp&nbsp&nbsp</th>
+                        <th scope="col" class="form-matrix-column-headers form-matrix-column_2" style="position: relative;font-size:smaller;color:#01ABAA;"> Neutral &nbsp&nbsp&nbsp</th>
+                        <th scope="col" class="form-matrix-column-headers form-matrix-column_3" style="position: relative;font-size:smaller;color:#01ABAA;"> Agrees &nbsp&nbsp&nbsp</th>
+                        <th scope="col" class="form-matrix-column-headers form-matrix-column_4" style="position: relative;font-size:smaller;color:#01ABAA;"> Strongly Agrees &nbsp&nbsp&nbsp</th>
+                        
+                    </tr>
+                    {% for (index,question) in zip_list %}
+                        <tr role="group" aria-labelledby="label_31 label_31_row_1" style="background-color: #FEA680; color:white;">
+                            <th scope="row" class="form-matrix-row-headers" style="text-align: left; position: relative;">
+                            {{ question }}
+                            </th>
+                            <td class="form-matrix-values" style="text-align: center;">
+                                <input id="input_31_1_0" class="form-radio" name={{ index }} type="radio" value="0" checked>
+                            </td>
+                            <td class="form-matrix-values" style="text-align: center;">
+                                <input id="input_31_1_1" class="form-radio" name={{ index }} type="radio" value="1">
+                            </td>
+                            <td class="form-matrix-values" style="text-align: center;">
+                                <input id="input_31_1_2" class="form-radio" name={{ index }} type="radio" value="2">
+                            </td>
+                            <td class="form-matrix-values" style="text-align: center;">
+                                <input id="input_31_1_3" class="form-radio" name={{ index }} type="radio" value="3">
+                            </td>
+                            <td class="form-matrix-values" style="text-align: center;">
+                                <input id="input_31_1_4" class="form-radio" name={{ index }} type="radio" value="4" >
+                            </td>
+                        </tr>
+                       
+                    {% endfor %}
+                    
+                </tbody>
+            </table>
+            <br><br><br>
+            <button type="submit" style="background-color: #01ABAA;"><span><h2>Submit</h2></span></button>
+        </form>
+
+    </div>
+</div>
+{% endblock %}
