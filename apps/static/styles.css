@@ -96,6 +96,7 @@ table {
     border-spacing:0px 5px;
     border-color: tomato;
 }
+tr:nth-child(even) {background-color: #FEA680;}
 .form-matrix-row-headers {
     padding: 10px 22px 10px 10px;
 }

@@ -3,14 +3,52 @@ from flask_sqlalchemy import SQLAlchemy
 import pandas as pd
 from ml import forecast
 
-app = Flask(__name__)
-# Set up connection
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
+# Add SQLAlchemy dependencies
+import sqlalchemy
+from sqlalchemy.ext.automap import automap_base
+from sqlalchemy.orm import Session
+from sqlalchemy import create_engine, func
+import psycopg2
+from config import db_password
 
+app = Flask(__name__)
+# Set up database
+#-----------------------------
+ENV = 'PythonData'
+
+if ENV == 'PythonData':
+    app.debug = True
+    db_string = f'postgres://postgres:{db_password}@127.0.0.1:5432/divorce_prediction'
+    app.config['SQLALCHEMY_DATABASE_URI'] = db_string
+    print("success")
+else:
+    app.debug = False
+    app.config['SQLALCHEMY_DATABASE_URI'] = ''
+    print("error")
+
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db = SQLAlchemy(app)
+
+class Ques(db.Model):
+    __tablename__ = 'ques'
+    id = db.Column(db.String, primary_key=True)
+    question = db.Column(db.String, nullable=False)
+    answer = db.Column(db.Integer, nullable=False)
+
+    def __init__(self, question, answer):
+        self.question = question
+        self.answer = answer
+        
+
+#--------------------------------
+
+# Create question dataframe and save to questions_table table
 with open('indicators.txt', 'r') as file:
     questions = file.read().splitlines()
 indexes = [f'attr{i}' for i in range(1,len(questions)+1)]
 zip_list = zip(indexes, questions)
+
 
 @app.route('/')
 def index():
@@ -35,4 +73,4 @@ def submit():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+     app.run(debug=True)
