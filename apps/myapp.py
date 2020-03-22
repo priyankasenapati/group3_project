@@ -49,7 +49,6 @@ with open('indicators.txt', 'r') as file:
 indexes = [f'attr{i}' for i in range(1,len(questions)+1)]
 zip_list = zip(indexes, questions)
 
-
 @app.route('/')
 def index():
     return render_template('index1.html', zip_list=zip_list)
@@ -65,12 +64,14 @@ def submit():
             attributes = pd.DataFrame([attributes], columns=indexes)
             # Run machine learning model
             result = forecast(attributes)
-            return render_template('submit.html', result=result)
+            if(result == "divorced"):
+                return render_template('submit_divorce.html', result = result)
+            else :
+                return render_template('submit_success.html', result = result)
         except:
             return "Error: Please answer all questions"
     else:
         return "Error"
-
 
 if __name__ == "__main__":
      app.run(debug=True)
