@@ -12,11 +12,13 @@ html body{
     
  }
 .menu{
-    background-color:goldenrod;
+    background-image:url(../images/img1.jpg);
+    background-size: cover;
+    background-attachment: fixed;
  }
 .menu ul{
-     display: inline-flex;
-     margin: 50px;
+    display: inline-flex;
+    margin: 50px;
  }
 .menu ul li{
     list-style: none;
@@ -55,13 +57,13 @@ html body{
     font-size: 40px;
     width: 800px;
     position: relative;
-    margin-left: 20px;
+    margin-left: 40px;
     color:black;
 }
 .app-text p{
     font-size: 15px;
     width: 800px;;
-    margin: 30px 0 30px 20px;
+    margin: 30px 0 30px 40px;
     line-height: 25px;
     color: #626E60;
 }
@@ -95,7 +97,6 @@ table {
     border-color: tomato;
 }
 tr:nth-child(even) {background-color: #FEA680;}
-
 .form-matrix-row-headers {
     padding: 10px 22px 10px 10px;
 }
