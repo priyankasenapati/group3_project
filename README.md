@@ -19,3 +19,7 @@ Get inference data ==> Read Model ==> Predict outcome based on inference data ==
 * production.csv - The response of a single user who wants to predict getting divorced or staying married.
 
 *mord_in.py - The inferencing/prediction program to read the logistic regression model file, read the production.csv file and predict divorce (=1) or stay together (=0).
+
+### I have also added Divorce Prediction Sample Images
+### I have added Divorce prediction multiple LR models applied to divorce.csv dataset.
+
