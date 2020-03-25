@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <script type="text/javascript"
+	    src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+    <script type="text/javascript">
+
+        function initViz() {
+            var containerDiv = document.getElementById("vizContainer"),
+                url = "https://public.tableau.com/views/StateDivorcebyYear/DivorceRate?:display_count=y&publish=yes&:origin=viz_share_link",
+                options = {
+                    hideTabs: true,
+                    onFirstInteractive: function () {
+                        console.log("Run this code when the viz has finished loading.");
+                    }
+                };
+
+            var viz = new tableau.Viz(containerDiv, url, options);
+            // Create a viz object and embed it in the container div.
+        }
+    </script>
+</head>
+<body onload="initViz();">
+    <div class="container">
+        <div class="content" >
+            <div class="banner">
+                    <h1> Marriage and Divorce in the United States</h1>
+                    <p> A recent study shows that the rate of divorce has decreased. Mainly because of the millenials </p>
+            </div>
+            <div id="vizContainer" style="width: 70%; height:70%;">
+            </div>
+            <form class="form" action="/survey">
+                <br>
+                <button type="submit" ><span><h2>Take Survey</h2></span></button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
