@@ -1,7 +1,10 @@
+#!/usr/bin/env python
+# coding: utf-8
+
 from flask import Flask, render_template, redirect, request
 from flask_sqlalchemy import SQLAlchemy
 import pandas as pd
-from ml import forecast
+from ie import forecast
 
 # Add SQLAlchemy dependencies
 import sqlalchemy

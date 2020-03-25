@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# coding: utf-8
+    
 import numpy as np
 import pandas as pd
 from pathlib import Path
@@ -6,34 +9,49 @@ import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
+import pickle
 
-# Load the data
-file_path = Path('divorce.csv')
-divorce_df = pd.read_csv(file_path, sep=';')
+# Read the divorce dataset downloaded from http://archive.ics.uci.edu/ml/datasets/Divorce+Predictors+data+set
+df = pd.read_csv("divorce.csv", sep=";", engine='python')
+print(df)
 
-# Drop the null rows
-divorce_df = divorce_df.dropna()
+# The values have various ranges. Normalizing Dataset so that the values are distributed between 0 to 1.
+X = df.values[:,0:54]
+Y = df.values[:,54]
+standard_deviation = np.std(X,axis = 0)
+mean = np.mean(X,axis = 0)
+X = X-mean/standard_deviation
+standard_deviation.shape
 
-# Create our features
-X = divorce_df.drop(columns='Class')
+# Split the Divirce dataset Into Training And Testing Datasets to help determine the accuracy of the model later.
+# X values are the attribute values (answers to the 54 questions)
+# Y values are the divorce outcome (Yes/No or 1/0) provided in the 55th column in the Divorce dataset
+# training values are the training dataset values
+# testing values are for testing datasets values
+#
+# X_training - Attribute values in the training dataset
+# Y_training - Divorce outcomes for the training dataset
+# X_testing - Attribute values in the testing dataset
+# Y_testing - Divorce outcomes for the testing dataset
 
-# Create our target
-y = divorce_df['Class'].copy()
+from sklearn.model_selection import train_test_split
+X_training, X_testing, y_training, y_testing = train_test_split( X, Y, test_size=0.25, random_state=42)
 
-# Create X_train, X_test, y_train, y_test
-X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=1)
+# Logistic Regression Algorithm
+from sklearn.linear_model import LogisticRegression
+lg = LogisticRegression(random_state=0,solver = "liblinear")
+# Create Model
+lg.fit(X_training,y_training)
+# Predict outcome using the Attribute values from the testing dataset
+y_predict = lg.predict(X_testing)
+# Compute Accuracy of the model
+print("Accuracy = ",((np.sum(y_predict==y_testing)/y_testing.shape[0])*100),"%",sep="")
 
-# Logistic Regression
-classifier = LogisticRegression(solver='lbfgs', random_state=1, max_iter=200)
-classifier.fit(X_train, y_train)
-y_pred = classifier.predict(X_test)
+print (y_testing)
 
-def forecast(answers):
-    prediction = classifier.predict(answers)
-    if prediction ==1:
-        result = 'divorced'
-    else:
-        result ='still married'
-    return (result)
+print (y_predict)
 
-
+# Write this model to a file to be used during production inferencing
+training_model_file = 'divorce_prediction_model-Logistic_Regression_Algo.model'
+pickle.dump(lg, open(training_model_file, 'wb'))
+print("Wrote divorce prediction model to file", training_model_file)
