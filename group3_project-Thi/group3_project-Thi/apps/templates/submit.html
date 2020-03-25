@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Basic Embed</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <script type="text/javascript"
+	    src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+    <script type="text/javascript">
+        function initViz() {
+            var containerDiv = document.getElementById("vizContainer"),
+                url = "https://public.tableau.com/shared/D72HXP4MF?:display_count=y&:origin=viz_share_link",
+                options = {
+                    hideTabs: true,
+                    onFirstInteractive: function () {
+                        console.log("Run this code when the viz has finished loading.");
+                    }
+                };
+
+            var viz = new tableau.Viz(containerDiv, url, options);
+            // Create a viz object and embed it in the container div.
+        }
+    </script>
+</head>
+
+<body onload="initViz();">
+    <h1>The chances are you are {{result}} </h1>
+    <div id="vizContainer" style="width:800px; height:700px;">
+    </div>
+    <!-- {% extends 'base.html' %}
+this page will need a lot of changes from raj
+{% block head %}
+{% endblock %}
+{% block body %}
+{% endblock %} -->
+</body>
+
+</html>
