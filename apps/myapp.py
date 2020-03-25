@@ -30,28 +30,40 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
-class Ques(db.Model):
-    __tablename__ = 'ques'
-    id = db.Column(db.String, primary_key=True)
-    question = db.Column(db.String, nullable=False)
-    answer = db.Column(db.Integer, nullable=False)
+class User(db.Model):
+    __tablename__ = 'user'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String, nullable=False)
+    age = db.Column(db.Integer, nullable=False)
+    race = db.Column(db.Integer, nullable=False)
+    state = db.Column(db.Integer, nullable=False)
 
-    def __init__(self, question, answer):
-        self.question = question
-        self.answer = answer
+    def __init__(self, name, age, race, state):
+        self.name = name
+        self.age = age
+        self.race = race
+        self.state = state
         
+        
+##################################################
 
-#--------------------------------
-
-# Create question dataframe and save to questions_table table
+# Create question dataframe and save to table
 with open('indicators.txt', 'r') as file:
     questions = file.read().splitlines()
 indexes = [f'attr{i}' for i in range(1,len(questions)+1)]
-zip_list = zip(indexes, questions)
+
 
 @app.route('/')
 def index():
-    return render_template('index1.html', zip_list=zip_list)
+    # zip indexes and questions and pass to html 
+    
+    return render_template('index.html')
+
+@app.route('/survey')
+def survey():
+    # zip indexes and questions and pass to html 
+    zip_list = zip(indexes, questions)
+    return render_template('survey.html', zip_list=zip_list)
 
 @app.route('/submit', methods=['GET','POST'])
 def submit():
