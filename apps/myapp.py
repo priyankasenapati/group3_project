@@ -50,7 +50,7 @@ class User(db.Model):
         
 ##################################################
 
-# Create question dataframe and save to table
+# Open text file with questions
 with open('indicators.txt', 'r') as file:
     questions = file.read().splitlines()
 indexes = [f'attr{i}' for i in range(1,len(questions)+1)]
