@@ -1,46 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
+  <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>UFO Finder</title>
+        <title>Divorce</title>
         <link
           rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous"
         />
-        <link rel="stylesheet" href="static/css/style.css">
-    </head>
-    <style>
-        body {
-          background-image: url('../static/images/divorce.png');
-        }
-    </style>
+        <style>
+          *{
+                margin:0;
+                padding: 0;
+                font-family: sans-serif;
+            }
+          html body{
+              height:100%;
+              background-image: url(static/images/divorce.png);
+              background-size: cover;
+              background-attachment: fixed;
+          }
+          .container{
+              background:black;
+              width: 65%;
+              padding: 50px;
+              margin:100px auto;  
+          }
+          ul {
+              padding-left: 50px;
+          }
+        </style>
+</head>
 <body>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <h2 align="center" style="color:#FF6F61">The chances are you are getting {{result}} !!!! </h2>
-            <br>
-            <br>
-            <h2 style="color:darkcyan">Lack of commitment is the most common reason given by divorcing couples according to a recent national survey. Here are the reasons given and their percentages:</p>
-            <ul style="color:darkcyan; text-align: center; list-style-type:circle;">
-                <li>Lack of commitment 73%</li>
-                <li>Argue too much 56%</li>
-                <li>Infidelity 55%</li>
-                <li>Married too young 46%</li>
-                <li>Unrealistic expectations 45%</li>
-                <li>Lack of equality in the relationship 44%</li>
-                <li>Lack of preparation for marriage 41%</li>
-                <li>Domestic Violence or Abuse 25%</li>
-
-            </ul>  
+  <div class="container" align="center">
+    <br>
+    <h2 style="color:#FF6F61">Chances are you are getting {{result}} !!!! </h2>
+    <br>
+    <iframe src="https://giphy.com/embed/5b2Ph9d8xU5fW" width="320" height="180" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+    <br>
+    <br>
+    <p style="color:darkcyan; text-align: left;">&nbsp&nbsp&nbsp&nbsp Lack of commitment is the most common reason given by divorcing couples according to a recent national survey. Here are the reasons given and their percentages:
+    <ul style="color:darkcyan; text-align: left; list-style-type:circle; ">
+      <li>Lack of commitment 73%</li>
+      <li>Argue too much 56%</li>
+      <li>Infidelity 55%</li>
+      <li>Married too young 46%</li>
+      <li>Unrealistic expectations 45%</li>
+      <li>Lack of equality in the relationship 44%</li>
+      <li>Lack of preparation for marriage 41%</li>
+      <li>Domestic Violence or Abuse 25%</li>
+      
+    </ul> 
+    </p>
+  </div>
 </body>
 </html>
 

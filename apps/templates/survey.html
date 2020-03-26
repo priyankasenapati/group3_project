@@ -8,7 +8,23 @@
 
 <title>Marriage Prediction</title>
 <style>
-    
+    *{
+          margin:0;
+          padding: 0;
+          font-family: sans-serif;
+      }
+    html body{
+        height:100%;
+        background-image: url(static/images/img.jpg);
+        background-size: cover;
+        background-attachment: fixed;
+    }
+    .container{
+        background:white;
+        width: 70%;
+        padding: 50px;
+        margin:100px auto;  
+    }
 </style>
 {% endblock %}
 
@@ -57,10 +73,10 @@
                                 <input id="input_31_1_0" class="form-radio" name={{ index }} type="radio" value="0" checked>
                             </td>
                             <td class="form-matrix-values" style="text-align: center;">
-                                <input id="input_31_1_1" class="form-radio" name={{ index }} type="radio" value="1">
+                                <input id="input_31_1_1" class="form-radio" name={{ index }} type="radio" value="1"  >
                             </td>
                             <td class="form-matrix-values" style="text-align: center;">
-                                <input id="input_31_1_2" class="form-radio" name={{ index }} type="radio" value="2">
+                                <input id="input_31_1_2" class="form-radio" name={{ index }} type="radio" value="2" >
                             </td>
                             <td class="form-matrix-values" style="text-align: center;">
                                 <input id="input_31_1_3" class="form-radio" name={{ index }} type="radio" value="3">

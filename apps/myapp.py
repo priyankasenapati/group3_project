@@ -58,7 +58,6 @@ indexes = [f'attr{i}' for i in range(1,len(questions)+1)]
 
 @app.route('/')
 def index():
-    # zip indexes and questions and pass to html 
     
     return render_template('index.html')
 
