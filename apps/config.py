@@ -1,2 +1,2 @@
 # Postgres SQL password
-db_password = '2223'
+db_password = '2225'
