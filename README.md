@@ -15,7 +15,7 @@
 - Peer reviewed article: The growing Racial and Ethnic Divide in U.S. Marriage Patterns - Future Child (pdf)
 - Online research: Divorce rates by occupation and salary, aggregates (google spreadsheets from flowingdata.com)
 ### Machine Learning Model
-
+Logistic Regression
 ### Link to Tableau story
 [United States Marriage and Divorce in Numbers](https://public.tableau.com/profile/thi7884#!/vizhome/nationalrates/Story_US_Marriage_Divorce)
 ### Link to Google Slides Presentation 
