@@ -8,14 +8,14 @@
 - UC Irvine real survey Divorce Predictor data set, our quiz which will predict your divorce rate.
 ### Data exploration and transformation
 - Data for machine learning : UCI divorce predictor dataset (csv)
-- U.S. Census Data : 
+- U.S. Census Data: 
   - United States marriage and divorce rate (pdf)
   - Marriage rate by state (pdf)
   - Divorce rate by state (pdf)
 - Peer reviewed article: The growing Racial and Ethnic Divide in U.S. Marriage Patterns - Future Child (pdf)
 - Online research: Divorce rates by occupation and salary, aggregates (google spreadsheets from flowingdata.com)
 ### Machine Learning Model
-Logistic Regression
+
 ### Link to Tableau story
 [United States Marriage and Divorce in Numbers](https://public.tableau.com/profile/thi7884#!/vizhome/nationalrates/Story_US_Marriage_Divorce)
 ### Link to Google Slides Presentation 
