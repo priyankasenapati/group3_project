@@ -1,3 +1,4 @@
+# Run ml.py to get machine learning model first
 #!/usr/bin/env python
 # coding: utf-8
 
@@ -15,8 +16,9 @@ import psycopg2
 from config import db_password
 
 app = Flask(__name__)
+
+##################################################
 # Set up database
-#-----------------------------
 ENV = 'PythonData'
 
 if ENV == 'PythonData':
@@ -32,21 +34,12 @@ else:
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
-
-class User(db.Model):
-    __tablename__ = 'user'
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String, nullable=False)
-    age = db.Column(db.Integer, nullable=False)
-    race = db.Column(db.Integer, nullable=False)
-    state = db.Column(db.Integer, nullable=False)
-
-    def __init__(self, name, age, race, state):
-        self.name = name
-        self.age = age
-        self.race = race
-        self.state = state
-        
+# reflect an existing database into a new model
+Base = automap_base()
+# reflect the tables
+Base.prepare(db.engine, reflect=True)
+# Save references to each table
+occupations = Base.classes.divorce_by_occupation
         
 ##################################################
 
