@@ -1,4 +1,4 @@
-OCC,rate,medsal,name,category
+occ,rate,medsal,name,category
 9000,39.9,44659,Supervisors of Transportation and Material Moving Workers,Transportation and Material Moving
 9030,30.5,90000,Aircraft Pilots and Flight Engineers,Transportation and Material Moving
 9040,35.4,68475,Air Traffic Controllers and Airfield Operations Specialists,Transportation and Material Moving
@@ -318,7 +318,6 @@ OCC,rate,medsal,name,category
 410,43.5,42155,"Property, real estate, and community association managers",Management
 420,38.3,48000,Social and community service managers,Management
 430,34.5,70081,"Misc. managers, including funeral service managers (0325) and postmasters and mail superintendents",Management
-4465,35.6,42996,"Morticians, undertakers, and funeral directors",Management
 425,43.5,60151,Emergency management directors 3 Other business operations specialists,Business Operations
 500,34.7,36886,"Agents and business managers of artists, performers, and atheletes",Business Operations
 510,31.1,46053,"Buyers and purchasing agents, farm products",Business Operations
@@ -337,7 +336,6 @@ OCC,rate,medsal,name,category
 735,27.5,55063,Market research analysts and marketing specialists,Business Operations
 740,35.0,50000,"Business operations specialists, all others",Business Operations
 2825,31.1,51059,Public relations specialists,Business Operations
-3945,43.3,38683,Transportation security screeners,Business Operations
 2100,27.6,105121,"Lawyers, and judges, magistrates, and other judicial workers",Legal
 2105,25.3,39684,Judicial law clerks,Legal
 2145,44.7,41047,Paralegals and legal assistants,Legal
@@ -364,7 +362,6 @@ OCC,rate,medsal,name,category
 2760,45.7,17473,"Entertainers and Performers, Sports and Related Workers, All Other",Arts and Entertainment
 2800,43.3,27527,Announcers,Arts and Entertainment
 2810,28.9,40701,"News Analysts, Reporters and Correspondents",Arts and Entertainment
-2825,31.1,51059,Public Relations Specialists,Arts and Entertainment
 2830,29.6,44834,Editors,Arts and Entertainment
 2840,38.4,60069,Technical Writers,Arts and Entertainment
 2850,33.8,42000,Writers and Authors,Arts and Entertainment
