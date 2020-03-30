@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # coding: utf-8
-    
 import numpy as np
 import pandas as pd
 from pathlib import Path
@@ -20,23 +19,26 @@ from sklearn import datasets
 import pickle
 
 # PRODUCTION Divorce Prediction
-#
-# Predict Divorce outcome for one subject based on the production values entered on the website.
-#
-# A new user goes to the Divorce Prediction webpage and answers the questionaire of 54 questions.
+
+# Predict Divorce outcome for one subject based on
+# the production values entered on the website.
+
+# A new user goes to the Divorce Prediction webpage
+# and answers the questionaire of 54 questions.
+
 # Divorce outcome is predicted based on the production values provided.
-#
 
 # Read the Machine Learning model from a file use for production inferencing
 file = 'divorce_prediction_model-Logistic_Regression_Algo.model'
 print("Loading ML model from file: ", file)
 lg = pickle.load(open(file, 'rb'))
 
+
 def forecast(answers):
     print("Predicting Stay Married or Will be Divorced")
     prediction = lg.predict(answers)
-    if prediction ==1:
+    if prediction == 1:
         result = 'divorced'
     else:
-        result ='still married'
+        result = 'still married'
     return (result)

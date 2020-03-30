@@ -1,5 +1,5 @@
 # Run ml.py to get machine learning model first
-#!/usr/bin/env python
+# !/usr/bin/env python
 # coding: utf-8
 
 from flask import Flask, render_template, redirect, request
@@ -41,7 +41,6 @@ Base = automap_base()
 Base.prepare(db.engine, reflect=True)
 # Save references to each table
 occupations = Base.classes.divorce_by_occupation
-        
 ##################################################
 
 # Open text file with questions
