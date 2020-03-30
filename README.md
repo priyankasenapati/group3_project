@@ -8,7 +8,7 @@
 - UC Irvine real survey Divorce Predictor data set, our quiz which will predict your divorce rate.
 ### Data exploration and transformation
 - Data for machine learning : UCI divorce predictor dataset (csv)
-- U.S. Census Data: 
+- U.S. Census Data : 
   - United States marriage and divorce rate (pdf)
   - Marriage rate by state (pdf)
   - Divorce rate by state (pdf)
