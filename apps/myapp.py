@@ -16,12 +16,13 @@ from config import db_password
 
 app = Flask(__name__)
 # Set up database
-#-----------------------------
+# -----------------------------
 ENV = 'PythonData'
 
 if ENV == 'PythonData':
     app.debug = True
-    db_string = f'postgres://postgres:{db_password}@127.0.0.1:5432/divorce_prediction'
+    db_string =\
+        f'postgres://postgres:{db_password}@127.0.0.1:5432/divorce_prediction'
     app.config['SQLALCHEMY_DATABASE_URI'] = db_string
     print("success")
 else:
@@ -32,6 +33,7 @@ else:
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
+
 
 class User(db.Model):
     __tablename__ = 'user'
@@ -46,31 +48,33 @@ class User(db.Model):
         self.age = age
         self.race = race
         self.state = state
-        
-        
+
+
 ##################################################
 
 # Open text file with questions
 with open('indicators.txt', 'r') as file:
     questions = file.read().splitlines()
-indexes = [f'attr{i}' for i in range(1,len(questions)+1)]
+indexes = [f'attr{i}' for i in range(1, len(questions) + 1)]
 
 
 @app.route('/')
 def index():
-    
+
     return render_template('index.html')
+
 
 @app.route('/survey')
 def survey():
-    # zip indexes and questions and pass to html 
+    # zip indexes and questions and pass to html
     zip_list = zip(indexes, questions)
     return render_template('survey.html', zip_list=zip_list)
 
-@app.route('/submit', methods=['GET','POST'])
+
+@app.route('/submit', methods=['GET', 'POST'])
 def submit():
     attributes = []
-    if request.method == 'POST':  
+    if request.method == 'POST':
         try:
             for index in indexes:
                 value = request.form[index]
@@ -79,13 +83,14 @@ def submit():
             # Run machine learning model
             result = forecast(attributes)
             if(result == "divorced"):
-                return render_template('submit_divorce.html', result = result)
-            else :
-                return render_template('submit_success.html', result = result)
-        except:
+                return render_template('submit_divorce.html', result=result)
+            else:
+                return render_template('submit_success.html', result=result)
+        except BaseException:
             return "Error: Please answer all questions"
     else:
         return "Error"
 
+
 if __name__ == "__main__":
-     app.run(debug=True)
+    app.run(debug=True)
